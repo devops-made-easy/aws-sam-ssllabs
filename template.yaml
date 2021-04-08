@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+
+
+Globals:
+  Function:
+    Timeout: 300
+       
+Parameters:
+  DomainName:
+    Description: "domain name that needs to be scanned"
+    Type: String
+  SlackWebhookUrl:
+    Description: "Your Slack webhook URL "
+    Type: String
+  CronSchedule:
+    Description: "Cron or Rate Expression for cloud watch event  "
+    Type: String
+    Default: "cron(0 8 1 * ? *)"
+Resources:
+  SSLCertificateRating:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: ssl_certificate_rating/
+      Handler: app.lambda_handler
+      Runtime: python3.6
+      Environment:
+        Variables:
+          DOMAIN:
+            Ref: DomainName
+          SLACK_WEBHOOK_URL:
+            Ref: SlackWebhookUrl
+      Events:
+        CloudWatchEvent:
+          Type: Schedule
+          Properties:
+            Schedule: 
+              Ref: CronSchedule
+Outputs:
+  SSLCertificateRatingFunction:
+    Description: "SSLCertificateRating Lambda Function ARN"
+    Value: !GetAtt SSLCertificateRating.Arn
+
