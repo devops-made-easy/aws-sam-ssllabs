@@ -1,6 +1,8 @@
 # serverless-ssllabs
 ==============
 
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/dashboard?id=devops-made-easy_aws-sam-ssllabs)
+
 AWS SAM Project for the Qualys SSL Labs API. Idea behind this project is to run ssl scans on a specific schedule and send ratings as slack message.
 
 ## Features
