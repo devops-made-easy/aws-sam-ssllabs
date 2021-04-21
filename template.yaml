@@ -2,6 +2,19 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
 
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: ssl-rating-to-slack
+    Description: SAM Template that allow you to performs a deep analysis of the configuration of any SSL web server on the public Internet. By using SSL Labs APIs and send results to slack
+    Author: devops-made-easy
+    SpdxLicenseId: MIT
+    LicenseUrl: LICENSE
+    ReadmeUrl: README.md
+    Labels: ['devops-made-easy', "ssl-rating", "ssl-grade", "ssl-labs", "qualys"]
+    HomePageUrl: https://github.com/devops-made-easy/aws-sam-ssllabs
+    SemanticVersion: 1.0.0
+    SourceCodeUrl: https://github.com/devops-made-easy/aws-sam-ssllabs
+
 
 Globals:
   Function:
@@ -9,7 +22,7 @@ Globals:
        
 Parameters:
   DomainName:
-    Description: "domain name that needs to be scanned"
+    Description: "Domain name that needs to be scanned and is publicly accessible"
     Type: String
   SlackWebhookUrl:
     Description: "Your Slack webhook URL "
@@ -17,7 +30,9 @@ Parameters:
   CronSchedule:
     Description: "Cron or Rate Expression for cloud watch event  "
     Type: String
-    Default: "cron(0 8 1 * ? *)"
+    #Default: "cron(0 8 1 * ? *)"
+
+
 Resources:
   SSLCertificateRating:
     Type: AWS::Serverless::Function 

@@ -1,49 +1,41 @@
 # serverless-ssllabs
 ==============
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/dashboard?id=devops-made-easy_aws-sam-ssllabs)
+[![SonarCloud](https://img.shields.io/badge/scanned%20on-sonarcloud-orange?style=flat&logo=SonarCloud)](https://sonarcloud.io/dashboard?id=devops-made-easy_aws-sam-ssllabs) || 
+[![AWSSAM](https://img.shields.io/badge/view%20on-Serverless_Repo-orange?style=flat&logo=amazon%20aws)](https://console.aws.amazon.com/lambda/home?#/create/app?applicationId=arn:aws:serverlessrepo:us-west-2:604621407125:applications/ssl-rating-to-slack) ||
+[![SSLLABS](https://img.shields.io/badge/using%20-SSL_Labs_APIs-orange?style=flat&logo=stackshare)](https://www.ssllabs.com/projects/ssllabs-apis/index.html) 
 
 AWS SAM Project for the Qualys SSL Labs API. Idea behind this project is to run ssl scans on a specific schedule and send ratings as slack message.
 
 ## Features
 
-* Scans SSL Grade and send as a Slack Message.
+* Scans SSL Grade and send as a Slack Message and color codes are given based on grades.
 
 
-The application uses several AWS resources, including Lambda functions and CloudWatch Event. These resources are defined in the `template.yaml` file in this project. 
+## How to Deploy
 
-## Deploy the sample application
 
-The Serverless Application Model Command Line Interface (SAM CLI) is an extension of the AWS CLI that adds functionality for building and testing Lambda applications. It uses Docker to run your functions in an Amazon Linux environment that matches Lambda. It can also emulate your application's build environment and API.
 
-To use the SAM CLI, you need the following tools.
 
-* SAM CLI - [Install the SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
-* [Python 3 installed](https://www.python.org/downloads/)
-* Docker - [Install Docker community edition](https://hub.docker.com/search/?type=edition&offering=community)
 
-To build and deploy your application for the first time, run the following in your shell:
+## License Summary
+This sample code is made available under MIT license. See the [LICENSE](LICENSE) file.
 
-```bash
-sam build --use-container
-sam deploy --guided
-```
-
-Run functions locally and invoke them with the `sam local invoke` command.
-
-```bash
-AWS$ sam local invoke HelloWorldFunction --event events/event.json
-```
-
-## Terms of Use
-
-This is not an official SSL Labs project. Please make sure to read the official [Qualys SSL Labs Terms of Use](https://www.ssllabs.com/downloads/Qualys_SSL_Labs_Terms_of_Use.pdf).
+Note**: This is not an official SSL Labs project. Please make sure to read the official [Qualys SSL Labs Terms of Use](https://www.ssllabs.com/downloads/Qualys_SSL_Labs_Terms_of_Use.pdf).
 
 Also you should
 
 * only inspect sites and servers whose owners have given you permission to do so.
 * be clear that this tool works by sending assessment requests to remote SSL Labs servers and that this information will
 be shared with them.
+
+## Share the Love
+
+Like this project? Please give it a ★ on  [our GitHub!](https://github.com/devops-made-easy/aws-sam-ssllabs) it helps us a lot
+
+## Contributing
+Have an idea for a feature to enhance this serverless application? Open an [issue](https://github.com/devops-made-easy/aws-sam-ssllabs/issues/new) or [pull request](https://github.com/devops-made-easy/aws-sam-ssllabs/pulls) !
+
 
 
 
